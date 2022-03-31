@@ -26,9 +26,9 @@ namespace P03
                 int k=0;
                 int pozice = 0;
                 bool nalezeno=false;
-                for(int i=0;i<chain.Length;i++)
+                for(int i=0;i<chain.Length&&!nalezeno;i++)
                 {
-                    if (chain[i] >='0'&&chain[i]<='9'&&!nalezeno)
+                    if (chain[i] >='0'&&chain[i]<='9')
                     {
                         k=chain[i];
                         pozice=i;  
@@ -38,10 +38,7 @@ namespace P03
                 k -= 48;
                 if (!nalezeno)
                 {
-                    for(int i=0;i<chain.Length;i++)
-                    {
-                        label1.Text+=chain[i];
-                    }
+                 
                 }
                 else if(k>chain.Length)
                 {
@@ -49,14 +46,12 @@ namespace P03
                 }
                 else
                 {
-                    string vysledek="";
                     int tk=chain.Length-k;
-                    for(int i=0;i<tk;i++)
-                    {
-                        vysledek+=chain[i];
-                    }
-                    label1.Text=vysledek;
+                    chain=chain.Remove(chain.Length-k, k);
+                    label3.Text = 3.ToString();
                 }
+                label1.Text = chain;
+
             }
         }
     }
