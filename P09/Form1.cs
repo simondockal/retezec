@@ -30,6 +30,10 @@ namespace P09
                     string tecka = "";
                     string line = textBox1.Lines[i];
                     line = line.TrimEnd();
+                    if(line=="")
+                    {
+                        break;
+                    }
                     zacatek = line;
                     if(checkBox1.Checked)
                     {
